@@ -1,3 +1,4 @@
+const ContextStrategy = require('./src/db/Structure/ContextStrategy')
 console.log('olá mundo')
 
 if(1 === 1){
