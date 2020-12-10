@@ -41,9 +41,9 @@ create table Carro(
     IdCarro BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY,
     IdCliente BIGINT NULL,
     Placa VARCHAR(6) NOT NULL,
-    Modelo VARCHAR(50),
-    Marca VARCHAR(40),
-    Cor VARCHAR(20),
+    Modelo VARCHAR(50) NULL,
+    Marca VARCHAR(40) NULL,
+    Cor VARCHAR(20) NULL,
     FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente),
     PRIMARY KEY (IdCarro)
 );
