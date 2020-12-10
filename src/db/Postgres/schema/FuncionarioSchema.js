@@ -1,32 +1,41 @@
-const sequelizeConnection = require('./SequelizeConnection')
+const Sequelize = require('sequelize')
 
-const FuncionarioSchema = await sequelizeConnection.define('Funcionario',{
-    IdFuncionario: {
-        type: Sequelize.INTEGER,
-        reqrequired: true,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    IdEstacionamento:{
-        type: BigInt,
-        required: true,
-        references:{
-            model: 'Estacionamento',
-            key: 'IdEstacionamento' 
+const FuncionarioSchema =
+{
+    name: 'Estacionamento',
+    schema: {
+        IdFuncionario: {
+            type: Sequelize.BIGINT,
+            reqrequired: true,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        IdEstacionamento: {
+            type: Sequelize.BIGINT,
+            required: true,
+            references: {
+                model: 'Estacionamento',
+                key: 'IdEstacionamento'
+            }
+        },
+        IdPessoa: {
+            type: Sequelize.BIGINT,
+            required: true,
+            references: {
+                model: 'Pessoa',
+                key: 'IdPessoa'
+            }
+        },
+        Senha: {
+            type: Sequelize.STRING,
+            required: true,
         }
     },
-    IdPessoa:{
-        type: BigInt,
-        required: true,
-        references:{
-            model: 'Pessoa',
-            key: 'IdPessoa' 
-        }
-    },
-    Senha:{
-        type: String,
-        required: true,
-    },
-})
+    options: {
+        tableName: 'Funcionario',
+        freezeTableName: false,
+        timestamps: false
+    }
+}
 
 module.exports = FuncionarioSchema

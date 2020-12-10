@@ -1,36 +1,43 @@
-const sequelizeConnection = require('./SequelizeConnection')
+const Sequelize = require('sequelize')
 
-const CarroSchema = await sequelizeConnection.define('Carro', {
-    IdCarro: {
-        type: Sequelize.INTEGER,
-        reqrequired: true,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    IdCliente: {
-        type: String,
-        required: false,
-        references: {
-            model: 'Cliente',
-            key: 'IdCliente'
+const CarroSchema = {
+    name: 'Estacionamento',
+    schama: {
+        IdCarro: {
+            type: Sequelize.BIGINT,
+            reqrequired: true,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        IdCliente: {
+            type: Sequelize.STRING,
+            required: false,
+            references: {
+                model: 'Cliente',
+                key: 'IdCliente'
+            }
+        },
+        Placa: {
+            type: Sequelize.STRING,
+            required: true
+        },
+        Modelo: {
+            type: Sequelize.STRING,
+            required: false,
+        },
+        Marca: {
+            type: Sequelize.STRING,
+            required: false,
+        },
+        Cor: {
+            type: Sequelize.STRING,
+            required: false,
         }
     },
-    Placa: {
-        type: String,
-        required: true
-    },
-    Modelo: {
-        type: String,
-        required: false,
-    },
-    Marca: {
-        type: String,
-        required: false,
-    },
-    Cor: {
-        type: String,
-        required: false,
+    options: {
+        tableName: 'Carro',
+        freezeTableName: false,
+        timestamps: false
     }
-})
-
+}
 module.exports = CarroSchema

@@ -1,28 +1,36 @@
-const sequelizeConnection = require('./SequelizeConnection')
+const Sequelize = require('sequelize')
 
-const PessoaSchema = await sequelizeConnection.define('Pessoa', {
-    IdPessoa: {
-        type: Sequelize.INTEGER,
-        reqrequired: true,
-        primaryKey: true,
-        autoIncrement: true
+const PessoaSchema = {
+    name: 'Estacionamento',
+    schema: {
+        IdPessoa: {
+            type: Sequelize.INTEGER,
+            reqrequired: true,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        Nome: {
+            type: Sequelize.STRING,
+            required: true
+        },
+        DataNasc: {
+            type: Sequelize.DATE,
+            required: true
+        },
+        Email: {
+            type: Sequelize.STRING,
+            required: true
+        },
+        Telefone: {
+            type: Sequelize.STRING,
+            required: true
+        },
     },
-    Nome: {
-        type: String,
-        required: true
-    },
-    DataNasc: {
-        type: Date,
-        required: true
-    },
-    Email: {
-        type: String,
-        required: true
-    },
-    Telefone: {
-        type: String,
-        required: true
-    },
-})
+    options:{
+        tableName: 'Pessoa',
+        freezeTableName: false,
+        timestamps: false
+    } 
+}
 
 module.exports = PessoaSchema
