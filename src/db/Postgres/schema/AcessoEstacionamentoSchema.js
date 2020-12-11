@@ -10,7 +10,7 @@ const AcessoEstacionamentoSchema = {
             autoIncrement: true
         },
         IdEstacionamento: {
-            type: Sequelize.STRING,
+            type: Sequelize.BIGINT,
             required: false,
             references: {
                 model: 'Estacionamento',
@@ -18,7 +18,7 @@ const AcessoEstacionamentoSchema = {
             }
         },
         IdCarro: {
-            type: Sequelize.STRING,
+            type: Sequelize.BIGINT,
             required: false,
             references: {
                 model: 'Carro',
@@ -26,7 +26,7 @@ const AcessoEstacionamentoSchema = {
             }
         },
         IdFuncionario: {
-            type: Sequelize.STRING,
+            type: Sequelize.BIGINT,
             required: false,
             references: {
                 model: 'Carro',
