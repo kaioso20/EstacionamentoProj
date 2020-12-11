@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 
 const FuncionarioSchema =
 {
-    name: 'Estacionamento',
+    name: 'Funcionario',
     schema: {
         IdFuncionario: {
             type: Sequelize.BIGINT,

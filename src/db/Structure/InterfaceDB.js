@@ -8,6 +8,9 @@ class InterfaceDB{
     isConnected(){
         return Boom.notImplemented()
     }
+    static async defineModule(){
+        return Boom.notImplemented()
+    }
     read(){
         return Boom.notImplemented()
     }

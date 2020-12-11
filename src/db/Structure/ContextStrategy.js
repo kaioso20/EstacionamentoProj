@@ -1,26 +1,30 @@
 const InterfaceDB = require('./InterfaceDB')
 
-class ContextStrategy extends InterfaceDB{
-    constructor(db){
+class ContextStrategy extends InterfaceDB {
+    constructor(db) {
         super()
         this._db = db
     }
-    static connect(){
+    static connect() {
+
         return this._db.connect()
     }
-    isConnected(){
+    isConnected() {
         return this._db.isConnected()
     }
-    read(query){
+    async defineModule() {
+       return await this._db.defineModule()
+    }
+    read(query) {
         return this._db.read(query)
     }
-    update(id, body){
+    update(id, body) {
         return this._db.update(id, body)
     }
-    create(body){
+    create(body) {
         return this._db.create(body)
     }
-    delete(id, query){
+    delete(id, query) {
         return this._db.delete(id, query)
     }
 
