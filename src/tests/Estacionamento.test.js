@@ -14,7 +14,7 @@ describe('Teste estacionamento', function () {
     //     deepStrictEqual(result, expected)
     // })
 
-    it('Definição de model com sequelize', async () => {
+    it.only('Definição de model com sequelize', async () => {
         // const schema = await new PostgresStrategy().defineModule()
         await new PostgresStrategy().defineModule()
         // console.log(schema)

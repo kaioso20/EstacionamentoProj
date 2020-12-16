@@ -2,15 +2,15 @@ const Sequelize = require('sequelize')
 
 const CarroSchema = {
     name: 'Carro',
-    schama: {
+    schema: {
         IdCarro: {
-            type: Sequelize.BIGINT,
-            reqrequired: true,
+            type: Sequelize.INTEGER,
+            required: true,
             primaryKey: true,
             autoIncrement: true
         },
         IdCliente: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
             required: false,
             references: {
                 model: 'Cliente',

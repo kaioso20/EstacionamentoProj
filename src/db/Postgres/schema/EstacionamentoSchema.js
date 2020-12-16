@@ -10,11 +10,11 @@ const EstacionamentoSchema = {
             autoIncrement: true
         },
         Endereco: {
-            type: String,
+            type: Sequelize.STRING,
             required: true
         },
         Nome: {
-            type: String,
+            type: Sequelize.STRING,
             required: true
         }
     },

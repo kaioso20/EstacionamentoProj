@@ -5,7 +5,7 @@ const PessoaSchema = {
     schema: {
         IdPessoa: {
             type: Sequelize.INTEGER,
-            reqrequired: true,
+            required: true,
             primaryKey: true,
             autoIncrement: true
         },
@@ -24,7 +24,7 @@ const PessoaSchema = {
         Telefone: {
             type: Sequelize.STRING,
             required: true
-        },
+        }
     },
     options:{
         tableName: 'Pessoa',

@@ -3,7 +3,7 @@ const Sequelize = require('sequelize')
 const ClienteSchema = {
     name: 'Cliente',
     schema: {
-        IdClienteSchema: {
+        IdCliente: {
             type: Sequelize.INTEGER,
             required: true,
             primaryKey: true,
@@ -24,7 +24,7 @@ const ClienteSchema = {
                 model: 'Pessoa',
                 key: 'IdPessoa'
             }
-        },
+        }
     },
     options: {
         tableName: 'Cliente',

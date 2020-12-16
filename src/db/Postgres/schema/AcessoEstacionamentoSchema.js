@@ -2,15 +2,15 @@ const Sequelize = require('sequelize')
 
 const AcessoEstacionamentoSchema = {
     name: 'AcessoEstacionamento',
-    schama: {
+    schema: {
         IdAcessoEstacionamento: {
-            type: Sequelize.BIGINT,
-            reqrequired: true,
+            type: Sequelize.INTEGER,
+            required: true,
             primaryKey: true,
             autoIncrement: true
         },
         IdEstacionamento: {
-            type: Sequelize.BIGINT,
+            type: Sequelize.INTEGER,
             required: false,
             references: {
                 model: 'Estacionamento',
@@ -18,7 +18,7 @@ const AcessoEstacionamentoSchema = {
             }
         },
         IdCarro: {
-            type: Sequelize.BIGINT,
+            type: Sequelize.INTEGER,
             required: false,
             references: {
                 model: 'Carro',
@@ -26,11 +26,11 @@ const AcessoEstacionamentoSchema = {
             }
         },
         IdFuncionario: {
-            type: Sequelize.BIGINT,
+            type: Sequelize.INTEGER,
             required: false,
             references: {
-                model: 'Carro',
-                key: 'IdCarro'
+                model: 'Funcionario',
+                key: 'IdFuncionario'
             }
         },
         DataAcesso: {
