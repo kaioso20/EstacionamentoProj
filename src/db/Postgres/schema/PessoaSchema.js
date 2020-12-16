@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 
 const PessoaSchema = {
-    name: 'Estacionamento',
+    name: 'Pessoa',
     schema: {
         IdPessoa: {
             type: Sequelize.INTEGER,

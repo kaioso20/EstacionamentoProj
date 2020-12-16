@@ -15,7 +15,8 @@ describe('Teste estacionamento', function () {
     // })
 
     it('Definição de model com sequelize', async () => {
-        const schema = await new PostgresStrategy().defineModule()
-        console.log(schema)
+        // const schema = await new PostgresStrategy().defineModule()
+        await new PostgresStrategy().defineModule()
+        // console.log(schema)
     })
 })

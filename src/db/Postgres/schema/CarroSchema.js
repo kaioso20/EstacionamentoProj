@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 
 const CarroSchema = {
-    name: 'Estacionamento',
+    name: 'Carro',
     schama: {
         IdCarro: {
             type: Sequelize.BIGINT,

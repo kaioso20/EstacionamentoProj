@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize')
 
-const FuncionarioSchema =
-{
+const FuncionarioSchema = {
     name: 'Funcionario',
     schema: {
         IdFuncionario: {
