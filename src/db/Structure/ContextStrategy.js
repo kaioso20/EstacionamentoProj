@@ -6,14 +6,13 @@ class ContextStrategy extends InterfaceDB {
         this._db = db
     }
     static connect() {
-
         return this._db.connect()
     }
     isConnected() {
         return this._db.isConnected()
     }
-    async defineModule() {
-       return await this._db.defineModule()
+    async defineAllModules() {
+       return await this._db.defineAllModules()
     }
     read(query) {
         return this._db.read(query)

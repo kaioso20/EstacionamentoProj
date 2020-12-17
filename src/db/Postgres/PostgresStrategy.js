@@ -9,28 +9,28 @@ const AcessoEstacionamentoSchema = require('./../Postgres/schema/AcessoEstaciona
 const PessoaSchema = require('./../Postgres/schema/PessoaSchema');
 
 class PostgresStrategy extends IDb {
-    constructor(schema) {
+    constructor(schema, connection) {
         super()
-        this._schema = schema
+        this._schema = schema,
+        this._connection = connection
     }
     static connect() {
-        return this._db.connect()
+        //const connectionString = process.env.CONNECTION_STRING_POSTGRES
+
+        return new Sequelize('postgres://local:123456@localhost:5432/estacionamento')
     }
     isConnected() {
         return this._db.isConnected()
     }
-    async defineModule() {
-        const connectionString = process.env.CONNECTION_STRING_POSTGRES
-        const Sequelizer = new Sequelize('postgres://local:123456@localhost:5432/estacionamento')
-        
-        const Pessoa = await Sequelizer.define(PessoaSchema.name, PessoaSchema.schema, PessoaSchema.options).sync()
-        const Estacionamento = await Sequelizer.define(EstacionamentoSchema.name, EstacionamentoSchema.schema, EstacionamentoSchema.options).sync()
-        const Funcionario = await Sequelizer.define(FuncionarioSchema.name, FuncionarioSchema.schema, FuncionarioSchema.options).sync()
-        const Cliente = await Sequelizer.define(ClienteSchema.name, ClienteSchema.schema, ClienteSchema.options).sync()
-        const Carro = await Sequelizer.define(CarroSchema.name, CarroSchema.schema, CarroSchema.options).sync()
-        const AcessoEstacionamento = await Sequelizer.define(AcessoEstacionamentoSchema.name, AcessoEstacionamentoSchema.schema, AcessoEstacionamentoSchema.options).sync()
+    async defineAllModules() {
+        await this._connection.define(PessoaSchema.name, PessoaSchema.schema, PessoaSchema.options).sync()
+        await this._connection.define(EstacionamentoSchema.name, EstacionamentoSchema.schema, EstacionamentoSchema.options).sync()
+        await this._connection.define(FuncionarioSchema.name, FuncionarioSchema.schema, FuncionarioSchema.options).sync()
+        await this._connection.define(ClienteSchema.name, ClienteSchema.schema, ClienteSchema.options).sync()
+        await this._connection.define(CarroSchema.name, CarroSchema.schema, CarroSchema.options).sync()
+        await this._connection.define(AcessoEstacionamentoSchema.name, AcessoEstacionamentoSchema.schema, AcessoEstacionamentoSchema.options).sync()
 
-        return Sequelizer;
+        return this._connection;
     }
     read(query) {
         return this._schema.read(query)
