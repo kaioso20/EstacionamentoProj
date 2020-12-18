@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@hapi/hapi": "^20.0.3",
+    "@hapi/jwt": "^2.0.1",
     "boom": "^7.3.0",
+    "hapi": "^18.1.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5"

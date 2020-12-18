@@ -11,22 +11,21 @@ class ContextStrategy extends InterfaceDB {
     isConnected() {
         return this._db.isConnected()
     }
-    async defineAllModules() {
-       return await this._db.defineAllModules()
+    async defineModule(name, schema, options) {
+        return await this._db.defineModule(name, schema, options)
     }
-    read(query) {
-        return this._db.read(query)
+    read(schema, query) {
+        return this._db.read(schema, query)
     }
-    update(id, body) {
-        return this._db.update(id, body)
+    update(schema, id, body) {
+        return this._db.update(schema, id, body)
     }
-    create(body) {
-        return this._db.create(body)
+    create(schema, body) {
+        return this._db.create(schema, body)
     }
-    delete(id, query) {
-        return this._db.delete(id, query)
+    delete(schema, id, query) {
+        return this._db.delete(schema, id, query)
     }
-
 }
 
 module.exports = ContextStrategy
