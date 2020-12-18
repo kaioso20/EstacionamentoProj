@@ -1,6 +1,5 @@
 const Hapi = require('@hapi/hapi');
 const JWT = require('@hapi/jwt');
-const Boom = require('boom');
 
 const findRoutes = () => {
     //TODO: Find All routes
