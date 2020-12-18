@@ -1,15 +1,18 @@
 const Rotas = require('./routes')
-class Pessoa extends Rotas{
-    create(){
+class Pessoa extends Rotas {
+    constructor() {
+        super()
+    }
+    create() {
 
     }
-    list(){
+    list() {
 
     }
-    read(){
+    read() {
 
     }
-    delete(){
+    delete() {
 
     }
 }
